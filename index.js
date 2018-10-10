@@ -248,6 +248,15 @@ client.on("message", async message => {
 		process.env.dem = msgn;
 		message.channel.send('OK pas de probleme !');
 	}
+	if(command === "restart"){
+ 
+		message.channel.send('Restarting...')
+    
+			.then(msg => client.destroy())
+    
+			.then(() => client.login(process.env.token));
+  
+	}
 	else{  
 		var id = client.channels.get(process.env.diapo);
 		
