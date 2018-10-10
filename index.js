@@ -128,8 +128,8 @@ client.on('message', message => {
 	if (message.content.startsWith(process.env.prefix + 'mention') ) {
  
 		if (message.member.roles.has(Mentionnables.id)) {
-	 
-			message.member.removeRole(Mentionnables.id);
+			
+			message.member.removeRole(Mentionnables);
     
 			message.channel.sendMessage('Vous n'+ "'" +'avez plus le r\u00f4le Mentionnables.');
      
