@@ -109,28 +109,77 @@ client.on("guildMemberAdd", member => {
   console.log(user.username + " (" + user + ") joined " + guild.name + " (" + guild + ")");
 
 });
+client.on('message', message => {
+
+	if (message.author.bot) return;
+ 
+	if (message.channel.type === 'dm') return;
+
+
+	var guild2 = message.member.guild;
+
+	let Mentionnables = guild2.roles.find('name', 'mention');
+
+	if(!message.content.startsWith(process.env.prefix)) return;
+
+
+	if (message.content.startsWith(process.env.prefix + 'mention') ) {
+ 
+		if (message.member.roles.has(Mentionnables.id)) {
+	 
+			message.member.removeRole(Mentionnables);
+    
+			message.channel.sendMessage('Vous n'+ "'" +'avez plus le r\u00f4le Mentionnables.');
+     
+			console.log(`${message.author.username} already has role`);
+ 
+		}
+ 
+		else {
+	
+			message.member.addRole(Mentionnables);
+	
+			message.channel.sendMessage('Vous avez maintenant le r\u00f4le Mentionnables.');
+	
+			console.log(`${message.author.username} got a role`);
+
+		}
+	}
+});
 
 client.on('message', message => {
 
-  if (message.author.bot) return;
-  if (message.channel.type === 'dm') return;
+	if (message.author.bot) return;
+ 
+	if (message.channel.type === 'dm') return;
 
-var guild2 = message.member.guild;
-let Mentionnables = guild2.roles.find('name', 'Mentionnables');
 
-if(!message.content.startsWith(process.env.prefix)) return;
+	var guild2 = message.member.guild;
 
-if (message.content.startsWith('mention') || message.content.startsWith(process.env.prefix + 'mention') ) {
-  if (message.member.roles.has(Mentionnables)) {
-	  message.member.removeRole(Mentionnables);
-      message.channel.sendMessage('Vous n'+ "'" +'avez plus le r\u00f4le Mentionnables.');
-      console.log(`${message.author.username} already has role`);
- }
-  else {
-	message.member.addRole(Mentionnables);
-	message.channel.sendMessage('Vous avez maintenant le r\u00f4le Mentionnables.');
-	console.log(`${message.author.username} got a role`);
-};}});
+	let rolev = guild2.roles.find('name', 'valide');
+
+	if(!message.content.startsWith(process.env.prefix)) return;
+
+
+	if (message.content.startsWith(process.env.prefix + 'ok') ) {
+ 
+		if (message.member.roles.has(rolev.id)) {
+			
+			message.channel.sendMessage('STOP 1 FOIS SEULEMENT !');
+ 
+		}
+ 
+		else {
+	
+			message.member.addRole(rolev);
+	
+			message.reply('Merci a toi !');
+	
+			console.log(`${message.author.username} got a role`);
+
+		}
+	}
+});
 
 client.on("message", async message => {
   if(message.author.bot) return;
