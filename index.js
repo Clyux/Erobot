@@ -129,7 +129,7 @@ client.on('message', message => {
  
 		if (message.member.roles.has(Mentionnables.id)) {
 	 
-			message.member.removeRole(Mentionnables);
+			message.member.removeRole(Mentionnables.id);
     
 			message.channel.sendMessage('Vous n'+ "'" +'avez plus le r\u00f4le Mentionnables.');
      
