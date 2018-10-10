@@ -117,10 +117,7 @@ client.on('message', message => {
  
 	if (message.channel.type === 'dm') return;
 
-
-	var guild2 = message.member.guild;
-
-	let Mentionnables = guild2.roles.find('name', 'Mentionnables');
+	let Mentionnables = message.guild.roles.find('name', 'Mentionnables');
 
 	if(!message.content.startsWith(process.env.prefix)) return;
 
