@@ -118,7 +118,7 @@ client.on('message', message => {
 
 	var guild2 = message.member.guild;
 
-	let Mentionnables = guild2.roles.find('name', 'mention');
+	let Mentionnables = guild2.roles.find('name', 'Mentionnables');
 
 	if(!message.content.startsWith(process.env.prefix)) return;
 
@@ -156,7 +156,7 @@ client.on('message', message => {
 
 	var guild2 = message.member.guild;
 
-	let rolev = guild2.roles.find('name', 'valide');
+	let rolev = guild2.roles.find('name', 'add');
 
 	if(!message.content.startsWith(process.env.prefix)) return;
 
