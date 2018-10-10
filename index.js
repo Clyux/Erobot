@@ -154,6 +154,9 @@ client.on("message", async message => {
   if(command === "hower"){
 	message.channel.send("Hower un jeu cree par Ta! https://discord.gg/Cxc9ptU \u000A http://hower-game.is-great.net/");
   }
+  if(command === "pacman"){
+	message.channel.send("PacMan un jeu cree par Ta! https://discord.gg/Cxc9ptU \u000A http://re.22web.org/?k=rz84");
+  }
   if(command === "join"){
 	message.channel.send("https://discord.gg/Cxc9ptU Viens Rejoindre Ma Communaute ");
   }
